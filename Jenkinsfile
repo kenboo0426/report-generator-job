@@ -21,7 +21,7 @@ pipeline {
 }
 
 def executeExtentContracts() {
-  def response = httpRequest "${env.BACKEND_URL}/api/batch/extend_contract"
+  def response = httpRequest contentType: "APPLICATION_JSON", httpMode: "POST" url: "${env.BACKEND_URL}/api/batch/extend_contract"
   println("Status: "+response.status)
   println("Content: "+response.content)
 }
